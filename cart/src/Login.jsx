@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { login, useLoggedIn } from "./cart";
 
-export default function Login() {
+export default function Login(props) {
   const loggedIn = useLoggedIn();
   const [showLogin, setShowLogin] = useState(false);
 
@@ -10,6 +10,15 @@ export default function Login() {
   const [password, setPassword] = useState("123");
 
   if (loggedIn) return null;
+
+  console.log(props)
+
+  useEffect(() => {
+    if(props.context === "wcapp:open-modal") {
+      setShowLogin(!showLogin)
+    }
+  }, [props])
+  
 
   return (
     <>

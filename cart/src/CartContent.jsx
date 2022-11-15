@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { cart, clearCart } from "cart/cart";
 import { currency } from "home/products";
 
-export default function CartContent() {
+export default function CartContent(props) {
   const [items, setItems] = useState([]);
 
   useEffect(
@@ -11,6 +11,7 @@ export default function CartContent() {
     []
   );
 
+  console.log(props)
   return (
     <>
       <div className="my-10 grid grid-cols-4 gap-5">

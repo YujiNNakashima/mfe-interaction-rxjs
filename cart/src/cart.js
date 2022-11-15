@@ -15,6 +15,7 @@ export const getCart = () =>
   })
     .then((res) => res.json())
     .then((res) => {
+      console.log(cart)
       cart.next(res);
       return res;
     });

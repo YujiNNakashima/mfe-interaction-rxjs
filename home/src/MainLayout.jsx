@@ -9,8 +9,14 @@ import Footer from "home/Footer";
 import PDPContent from "pdp/PDPContent";
 import HomeContent from "home/HomeContent";
 import CartContent from "cart/CartContent";
+import WCApp from "wcapp/WCApp";
+import withInteractionEventListener from "./hocs/withInteractionEventListener";
+
+const WrappedWCApp = withInteractionEventListener(WCApp)
 
 export default function MainLayout() {
+
+  
   return (
     <Router>
       <div className="text-3xl mx-auto max-w-6xl">
@@ -20,6 +26,7 @@ export default function MainLayout() {
             <Route exact path="/" component={HomeContent} />
             <Route path="/product/:id" component={PDPContent} />
             <Route path="/cart" component={CartContent} />
+            <Route path="/wc" component={WrappedWCApp} />
           </Switch>
         </div>
         <Footer />
